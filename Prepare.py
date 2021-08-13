@@ -126,6 +126,44 @@ def create_features(df):
     
     return df
 
+def make_bins_and_feats(df):
+    '''
+    This function is designed to make different bins using pd.cut and the tenure in years 
+    values of each government employee. 
+    
+    This function will then take those bins and use them to create respective categorical 
+    features using one hot encoding
+    '''
+    
+    print('Looking At Our Maximum Age and Minimum Age to Make Some Age Bins\n')
+    print(f'Max: {df.tenure_years.max()}, Min: {df.tenure_years.min()}')
+    print('\n----------------------------\n')
+    
+    print('Visualizing Years of Tenure Column To Help with Binning\n')
+    sns.boxplot(data = df, x = 'tenure_years')
+    plt.show()    
+    print('\n----------------------------\n')
+    
+    ## using pd.cut to create 4 bins from the ranges 
+    ## (0-5 years, 5-10 years, 10-20 years, & 20 or more years)
+    df['tenure_years_bins'] = pd.cut(df.tenure_years, 
+                                     bins = [0,5,10,20,55],
+                                     labels = [1,2,3,4])
+    
+    ## quality assurance check of my tenure_years_bins column
+    print('Looking At Our Years of Tenure Bins Value Counts')
+    print(df['tenure_years_bins'].value_counts()) 
+    print('\n----------------------------\n')
+    
+    ## using one hot encoding to create categorical columns for each bin using 1's for True
+    ## 0's for false
+    df['0-5_years'] = np.where(df.tenure_years_bins == 1, 1, 0)
+    df['5-10_years'] = np.where(df.tenure_years_bins == 2, 1, 0)
+    df['10-20_years'] = np.where(df.tenure_years_bins == 3, 1, 0)
+    df['>20_years'] = np.where(df.tenure_years_bins == 4, 1, 0)
+    
+    return df
+    
 
 def split_data(df):
     '''
