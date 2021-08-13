@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 from datetime import datetime
 
+from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import explained_variance_score
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression, LassoLars, TweedieRegressor
@@ -64,10 +65,56 @@ def prepare_tex(df):
     
     return df
 
+
+def create_features(df):
+    '''
+    This function is designed to create multipal features form the original columns of 
+    the dataframe.
+    
+    It uses one hot encoding to create an is_female column with the values of 1 for female
+    and 0 for male
+    
+    It also uses one hot encoding to create categorical columns for the three top races: white,
+    hispanic, and black. While also using a label encoder to create a machine formatted 
+    race_encoded column where the values are different integers instead of strings.
+    
+    Knowing the last updated date of the employee information is July 1st, 2021 we were able 
+    to use date time format and a timedelta to create a tenure in months column and a tenure in 
+    years column by subtracting the hire_date column from the domain knowledge date July 1st, 
+    2021
+    '''
+    ## creating a label encoder to encode certain categorical columns
+    label_encoder = LabelEncoder()
+    
+    ## one hot encoding column for gender
+    df['is_female'] = np.where(df.sex == 'FEMALE', 1, 0)
+    
+    ## one hot encoding the top three races in the dataframe
+    df['is_white'] = np.where(df.race == 'WHITE', 1, 0)
+    df['is_hispanic'] = np.where(df.race == 'HISPANIC', 1, 0)
+    df['is_black'] = np.where(df.race == 'BLACK', 1, 0)
+    
+    ## creating a race column that is incoded for machine readable formate
+    df['race_encoded'] = label_encoder.fit_transform(df['race'])
+    
+    ## creating a tenure in months column by subrtracting the hire date from the last updated 
+    ## date of the dataframe (7/1/21) and dividing it by a time delta 
+    df['tenure_months'] = np.round((pd.to_datetime('2021-07-01') -
+                                    df['hire_date'])/np.timedelta64(1,'M'))
+    
+    ## casting tenure in months as an int
+    df['tenure_months'] = df['tenure_months'].astype(int)
+    
+    ## creating a teunre in years column and rounding it to one decimal place
+    df['tenure_years'] = np.round(df['tenure_months'] / 12, 1)
+    
+    return df
+
+
 def split_data(df):
     '''
     This function is designed to split out data for modeling into train, validate, and test 
-    dataframes
+    dataframes.
     
     It will also perform quality assurance checks on each dataframe to make sure the target 
     variable was correctcly stratified into each dataframe.
