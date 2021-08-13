@@ -63,5 +63,23 @@ def prepare_tex(df):
     df = df.drop(index=[794, 118710, 144495])
     
     return df
+
+def split_data(df):
+    '''
+    This function is designed to split out data for modeling into a train, validate, and test 
+    dataframe stratifying on our target variable is_fraud
+    
+    It will also perform quality assurance checks on each dataframe to make sure the target 
+    variable was correctcly stratified into each dataframe.
+    '''
+    
+    ## splitting the data stratifying for out target variable is_fraud
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=123)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123)
+    
+    print('Making Sure Our Shapes Look Good')
+    print(f'Train: {train.shape}, Validate: {validate.shape}, Test: {test.shape}')
     
     
