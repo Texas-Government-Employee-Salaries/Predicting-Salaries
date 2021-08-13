@@ -66,8 +66,8 @@ def prepare_tex(df):
 
 def split_data(df):
     '''
-    This function is designed to split out data for modeling into a train, validate, and test 
-    dataframe stratifying on our target variable is_fraud
+    This function is designed to split out data for modeling into train, validate, and test 
+    dataframes
     
     It will also perform quality assurance checks on each dataframe to make sure the target 
     variable was correctcly stratified into each dataframe.
