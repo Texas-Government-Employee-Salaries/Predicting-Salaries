@@ -58,6 +58,10 @@ def prepare_tex(df):
     ## dropping the duplciates rows
     df = df.drop_duplicates()
     
+    ## getting rid of clerical errors
+    ## these three employees had a hire date in the future
+    df = df.drop(index=[794, 118710, 144495])
+    
     return df
     
     

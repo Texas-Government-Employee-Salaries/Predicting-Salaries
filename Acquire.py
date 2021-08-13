@@ -41,6 +41,6 @@ def get_texas_data(cached=False):
     else:
         
         # If csv file exists or cached == True, read in data from csv.
-        df = pd.read_csv('texas.csv')
+        df = pd.read_csv('texas.csv', index_col=0)
         
     return df
