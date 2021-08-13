@@ -121,8 +121,18 @@ def create_features(df):
     ## casting tenure in months as an int
     df['tenure_months'] = df['tenure_months'].astype(int)
     
-    ## creating a teunre in years column and rounding it to one decimal place
+    ## creating a tenure in years column and rounding it to one decimal place
     df['tenure_years'] = np.round(df['tenure_months'] / 12, 1)
+    
+    ## creating a categorical column of whether someone is an elected official or not
+    df['is_elected'] = np.where((df.title == 'ELECTED OFFICIAL') | 
+                            (df.title == 'JUSTICE') |
+                            (df.title == 'ATTORNEY GENERAL') |
+                            (df.title == 'GOVERNOR') | 
+                            (df.title == 'LIEUTENANT GOVERNOR') |
+                            (df.title == 'COMPTROLLER OF PUBLIC ACCOUNTS') |
+                            (df.title.str.startswith('COMMISSIONER'))
+                            , 1, 0)
     
     return df
 
