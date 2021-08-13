@@ -56,6 +56,8 @@ def prepare_tex(df):
     df.hire_date = pd.to_datetime(df.hire_date)
     
     ## dropping the duplciates rows
-    df = df.drop_duplicates() 
+    df = df.drop_duplicates()
+    
+    return df
     
     
