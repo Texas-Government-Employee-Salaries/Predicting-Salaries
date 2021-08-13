@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 from datetime import datetime
 
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import explained_variance_score
 from sklearn.metrics import mean_squared_error
@@ -137,11 +138,13 @@ def split_data(df):
     
     ## splitting the data stratifying for out target variable is_fraud
     train_validate, test = train_test_split(df, test_size=.2, 
-                                        random_state=123)
+                                            random_state=123)
     train, validate = train_test_split(train_validate, test_size=.3, 
-                                   random_state=123)
+                                       random_state=123)
     
     print('Making Sure Our Shapes Look Good')
     print(f'Train: {train.shape}, Validate: {validate.shape}, Test: {test.shape}')
+    
+    return train, validate, test
     
     
