@@ -28,6 +28,9 @@ def prepare_tex(df):
     It lower cases the capital columns and renames all the abbreviated column to a more
     human readable format.
     
+    The function also trims leading and trailing white space on all the string values for the
+    object columns.
+    
     It also drops duplicate records and changes the hire date to a date time formatted object
     '''
     
@@ -37,8 +40,14 @@ def prepare_tex(df):
     ## now let's remove any potential leading whitesapce from column names
     df.columns = df.columns.str.strip()
     
-    ## removing any potential whitespace from the race categorical column
+    ## removing any potential whitespace from the columns with string values
     df.race = df.race.str.strip()
+    df.agency = df.agency.str.strip()
+    df.lastname = df.lastname.str.strip()
+    df.firstname = df.firstname.str.strip()
+    df.title = df.title.str.strip()
+    df.sex = df.sex.str.strip()
+    df.emptype = df.emptype.str.strip()
     
     ## Let's drop unneccasary columns that won't be any help with predicting our
     ## target variable because they are either incomplete or insignificant information
