@@ -106,6 +106,9 @@ def create_features(df):
     df['is_hispanic'] = np.where(df.race == 'HISPANIC', 1, 0)
     df['is_black'] = np.where(df.race == 'BLACK', 1, 0)
     
+    ## one hot encoding column for BIPOC: Black Indigenous People of Color 
+    df['is_BIPOC'] == np.where(df.race != 'WHITE', 1, 0)
+    
     ## creating a race column that is incoded for machine readable formate
     df['race_encoded'] = label_encoder.fit_transform(df['race'])
     
