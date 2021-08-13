@@ -34,8 +34,11 @@ def prepare_tex(df):
     ## first let's rename all the columns to lowercase for easeier workflow
     df.rename(str.lower, axis='columns', inplace=True)
     
-    ## now let's remove any potential leading whitesapce
+    ## now let's remove any potential leading whitesapce from column names
     df.columns = df.columns.str.strip()
+    
+    ## removing any potential whitespace from the race categorical column
+    df.race = df.race.str.strip()
     
     ## Let's drop unneccasary columns that won't be any help with predicting our
     ## target variable because they are either incomplete or insignificant information
