@@ -35,6 +35,40 @@ by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 * H<sub>0</sub>: 
 * H<sub>1</sub>: 
 
+## Data Dictionary
+Please use this data dictionary as a reference for the variables used within in the data set.
+
+| Feature       | Data type     | Description     |
+| :------------- | :----------: | -----------: |
+|  agency_id | int64   | Unique agency identifier    |
+|  agency  | object | Identifier for agency or department |
+|  lastname	| object	| Employee's last name |
+| firstname	| object	| Employee's first name | 
+| title	| object	| Employee's job title |
+| race	| object |	Employee's race. Options are White, Hispanic, Black, Asian,  Native American, and Other|
+| sex	| object |	Employee's sex. Options are male or female. |
+| emptype	| object |	Whether an employee is a) classified or unclassified, b) regular or temporary, c) part-time or full-time |
+| hire_date	| datetime64 |	When the employee was hired |
+| hours_worked	| float64	| How many hours per week an employee worked |
+| monthly_salary	| float64	| An employee's monthly salary | 
+| annual_salary	| float64 |	An employee's annual salary |
+| is_female	|int64|	An employee's sex encoded. 0=Male, 1=Female |
+| is_white |int64|	An employee's race encoded. 0=Not White, 1=White |
+| is_hispanic|	int64	|An employee's race encoded. 0=Not Hispanic, 1=Hispanic |
+| is_black	|int64	|An employee's race encoded. 0=Not Black, 1=Black |
+| is_BIPOC	|int64|	An employee's race encoded. 0=White, 1=Hispanic, Black, American Indian, Asian, or Other |
+| race_encoded	|int64	|An employee's race encoded. 0=Am Indian, 1=Asian, 2=Black, 3=Hispanic, 4=Other, 5=White |
+| tenure_months	|int64	|An employee's tenure in months. Calculated by subtracting 7/1/2021 and the hire date. 7/1/2021 was the date this data was most recently updated. |
+| tenure_years	|float64	|An employee's tenure in years |
+| is_elected	|int64	|0=Employee was not elected. 1=Employee was elected |
+| is_director	|int64	|0=Employee does not contain "director" in their title. 1=Employee contains "director" in their title. |
+| tenure_years_bins	|int64	|Assigns an employee to a "bin" based on their tenure. 1=0-5 years. 2=5-10 years. 3=10-20 years. 4=More than 20 years. |
+| 0-5_years	|int64	|An employee's bin encoded. 0=Tenure does not fall within 0-5 years. 1=Tenure falls within 0-5 years. |
+| 5-10_years	|int64	|An employee's bin ecnoded. 0=Tenure does not fall within 5-10 years. 1=Tenure falls within 5-10 years. |
+| 10-20_years	|int64	|An employee's bin encoded. 0=Tenure does not fall within 10-20 years. 1=Tenure falls within 10-20 years.|
+| >20_years	|int64	|An employee's bin encoded. 0=Tenure is less than 20 years. 1=Tenure is greater than 20 years. |
+***
+
 ## Project Planning
 
 The overall process followed in this project, is as follows:
