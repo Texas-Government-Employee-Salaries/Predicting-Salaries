@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pydataset import data
-import acquire as aq
-import prepare as pr
+import Acquire as aq
+import Prepare as pr
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import scipy.stats as stats
