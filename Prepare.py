@@ -157,8 +157,11 @@ def make_bins_and_feats(df):
     ## using pd.cut to create 4 bins from the ranges 
     ## (0-5 years, 5-10 years, 10-20 years, & 20 or more years)
     df['tenure_years_bins'] = pd.cut(df.tenure_years, 
-                                     bins = [0,5,10,20,55],
+                                     bins = [-5,5,10,20,55],
                                      labels = [1,2,3,4])
+    
+    ## casting the tenure_years_bins as an integer for exploration purposes
+    df['tenure_years_bins'] = df['tenure_years_bins'].astype(int)
     
     ## quality assurance check of my tenure_years_bins column
     print('Looking At Our Years of Tenure Bins Value Counts')
