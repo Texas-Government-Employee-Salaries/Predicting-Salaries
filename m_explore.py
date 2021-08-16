@@ -107,7 +107,7 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
      
 def explore_multivariate(train, target, cat_vars, quant_vars):
     '''
-    This function takes in takes in a dataframe, the name of the binary target variable, a list of 
+    This function takes in a dataframe, the name of the binary target variable, a list of 
     the names of the categorical variables and a list of the names of the quantitative variables.
     It generates boxplots showing the target variable for each class of the categorical variables 
     against the quantitative variables.
