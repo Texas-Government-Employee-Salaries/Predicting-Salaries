@@ -134,6 +134,9 @@ def create_features(df):
                             (df.title.str.startswith('COMMISSIONER'))
                             , 1, 0)
     
+    ## creating a categorical column of whether someone is a director of their department or not
+    df['is_director'] = np.where(df.title.str.contains('DIRECTOR'), 1, 0)
+    
     return df
 
 def make_bins_and_feats(df):
