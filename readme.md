@@ -62,6 +62,8 @@ Please use this data dictionary as a reference for the variables used within in 
 | tenure_years	|float64	|An employee's tenure in years |
 | is_elected	|int64	|0=Employee was not elected. 1=Employee was elected |
 | is_director	|int64	|0=Employee does not contain "director" in their title. 1=Employee contains "director" in their title. |
+| is_unclassified	|int64	|0=Employee has access to classified information. 1=Employee does not have access to classified information. |
+| is_parttime	|int64	|0=Employee is full-time. 1=Employee is part-time. |
 | tenure_years_bins	|int64	|Assigns an employee to a "bin" based on their tenure. 1=0-5 years. 2=5-10 years. 3=10-20 years. 4=More than 20 years. |
 | 0-5_years	|int64	|An employee's bin encoded. 0=Tenure does not fall within 0-5 years. 1=Tenure falls within 0-5 years. |
 | 5-10_years	|int64	|An employee's bin ecnoded. 0=Tenure does not fall within 5-10 years. 1=Tenure falls within 5-10 years. |
