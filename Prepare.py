@@ -137,6 +137,12 @@ def create_features(df):
     ## creating a categorical column of whether someone is a director of their department or not
     df['is_director'] = np.where(df.title.str.contains('DIRECTOR'), 1, 0)
     
+    ## creating classified vs unclassified column
+    df['is_unclassified'] = np.where(df.emptype.str.contains('UNCLASSIFIED'), 1, 0)
+
+    ## creating part-time vs full-time column
+    df['is_parttime'] = np.where(df.is_parttime.str.contains('PART-TIME'), 1, 0)
+    
     return df
 
 def make_bins_and_feats(df):

@@ -25,7 +25,7 @@ def explore_univariate(df, cat_vars, quant_vars):
     # plot frequencies for each categorical variable
     for var in cat_vars: 
         print('Bar Plot of ' + var)
-        bp = df[var].hist()
+        bp = df[var].hist(bins=100)
         plt.xlabel(var)
         plt.ylabel('count')
         bp.grid(False)
@@ -47,7 +47,7 @@ def generate_hist(df, var):
     generate and display a histogram for that variable.
     '''
     print ('Distribution of ' + var)
-    df[var].hist()
+    df[var].hist(bins=100)
     plt.grid(False)
     plt.xlabel(var)
     plt.ylabel('Number of Properties')
