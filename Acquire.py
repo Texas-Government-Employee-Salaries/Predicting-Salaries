@@ -71,11 +71,13 @@ def get_data_summary(df):
     print('-------------------')
 
     print('Here are the categories and their relative proportions')
-    # check different categories and proportions of each category for object type cols
+    # check different categories and proportions of each category for categorical variables
+    cat_vars = ['RACE','SEX', 'EMPTYPE']
     for col in df.columns:
-        print(df[col].value_counts())
-        print('')
-        print(f'proportions of {col}')
-        print('')
-        print(df[col].value_counts(normalize=True,dropna=False))
-        print('-------------------')
+        if col in cat_vars:
+            print(df[col].value_counts())
+            print('')
+            print(f'proportions of {col}')
+            print('')
+            print(df[col].value_counts(normalize=True,dropna=False))
+            print('-------------------')
