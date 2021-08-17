@@ -107,21 +107,37 @@ The overall process followed in this project, is as follows:
 * This functionality is stored in the python script `prepare.py`. `explore_univariate` will perform the following actions:
 - Examine individual distributions of data and identify outliers
 * perform univariate analysis, by generating bar plots for each categorical variable, as well as box plots and histograms for quantitative variables
-* `prepare_tex` performs the following actions
+* `prepare_tex` performs the following actions:
 1. Lowercases the capital columns and renames all the abbreviated column to a more human readable format. 
 2. The function also trims leading and trailing white space on all the string values for the object columns.
 3. Check for duplicate rows in the data set. If duplicates are detected, they are removed and appropriate log messages are returned
 4. Check for clerical errors in the data set - several such cases were identified and addressed as follows:
 	* Three employees had a hire date listed as 2069. Since it was such a low number, we dropped these emplooyees 
 5. Drop unnecessary columns such as `jobclass`, `mi`, `rate`, `statenum`, `duplicated`, `multiple_full_time_jobs`, `combined_multiple_jobs`, `summed_annual_salary`, `hide_from_search`. 
-6. Renamed columns for ease of workflor
-7. 
-8. Attempt to remove the outliers using an IQR of 1.5 - although this did bring some distributions closer to normal, this reduced the correlation of predictors with the target variable. As a result, we proceeded without this process and instead made use of a Robust Scaler to reduce the effect of outliers.
-	* Moreover, we opted not to remove outliers from the train split, as there would potentially be outliers in the validate/test sets. This could negatively impact the model's performance.
-9. Split the data into 3 datasets - train/test/validate - used in modeling
+6. Renamed columns for ease of workflow
+* `create_features` performs the following actions:
+1. One hot encodes for sex: `is_female` column
+2. One hot encodes for top three races: `is_white`, `is_black`, `is_hispanic` columns
+3. One hot encodes for whether or not someone is a Black, Indigenous, Person of Color (BIPOC): `is_BIPOC` column
+4. Creating `tenure_months` and `tenure_years` columns by taking 7/1/2021 - `hire_date`. The data was retrieved by the Texas Tribune on 7/1/2021.
+5. Creating a `is_elected` categorical column using a conditional clause. Elected officials include: Governor, Lieutenant Governor, Attorney General, Justices, Comptroller of Public Accounts, Commisioners, and state legislators.
+6. Creating a `is_director` categorical column of whether or not someone is a director of their department.
+7. Creating a `is_unclassified` categorical column using a conditional clause. 
+8. Creating a `is_parttime` categorical column using a conditional clause.
+* Moreover, we opted not to remove outliers from the train split, as there would potentially be outliers in the validate/test sets. This could negatively impact the model's performance.
+* `make_bins_and_feats` performs the following actions:
+1. Uses `pd.cut` to create 4 bins out of the `tenure_years` column
+2. Prints out the value counts of each bin
+3. Uses one hot encoding to create categorical columns for each of the bins (`0-5_years`, `5-10_years`, `10-20_years`, `>20_years`)
+* `split_data` performs the following actions:
+1. Split the data into 3 datasets - train/test/validate - used in modeling
 	* Train: 56% of the data
 	* Validate: 24% of the data
 	* Test: 20% of the data
+* `min_max_scale` performs the following actions:
+1. Creates a scaler object by fitting it onto the train dataset
+2. Scales X_train, X_validate, and X_test as arrays
+3. Converts arrays to dataframes
 
 ### 4. Explore
 * This functionality resides in the "explore.py" file, which provides the following functionality:
@@ -144,20 +160,9 @@ The overall process followed in this project, is as follows:
 * Present findings via PowerPoint slides
 
 ## To recreate
-Simply clone the project locally and create an env.py file in the same folder as the cloned code. The format should be as follows:
+Simply clone the project locally and follow steps outlined in this README.
 
-```
-host = ‘DB_HOST_IP’
-user =  ‘USERNAME’
-password = ‘PASSWORD’
-
-def get_db_url(db, user=user, host=host, password=password):
-    return f'mysql+pymysql://{user}:{password}@{host}/{db}'
-```
-    
-In the above code, replace the `host`, `user` and `password` values with the correct Database Host IP address, Username and Password.
-
-Next, open the Jupyter notebook titled “final_report_zillow” and execute the code within. 
+Next, open the Jupyter notebook titled “final_report” and execute the code within. 
 
 ## Takeaways
 During the analysis process, I made use of the following regression models:
