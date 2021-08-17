@@ -53,6 +53,7 @@ def generate_hist(df, var):
     plt.ylabel('Number of Properties')
     plt.show()
 
+
 def generate_barplot(df, target, var):
     '''
     Helper function to generate barplots. Given a dataframe df, a target column and a 
@@ -66,6 +67,7 @@ def generate_barplot(df, target, var):
     plt.axhline(overall_mean, ls = '--', color = 'grey')
     plt.show()
 
+
 def generate_boxplot(df,target, var):
     '''
     Given a dataframe df, a target column and a variable to plot, this helper function
@@ -76,6 +78,7 @@ def generate_boxplot(df,target, var):
     plt.title('Boxplot of ' + var)
     plt.show()
 
+
 def generate_countplot(df, target, var):
     '''
     Another helper function used to display a plot. Given a dataframe df, a target
@@ -85,8 +88,10 @@ def generate_countplot(df, target, var):
     plt.tight_layout()
     plt.show()
 
+
 def generate_scatterplot(df, target, var):
     sns.lmplot(x=var, y=target, data=df, scatter=True,  line_kws={'color': 'red'})
+
 
 def explore_bivariate(df, target, cat_vars, quant_vars):
     '''
@@ -119,6 +124,20 @@ def explore_multivariate(train, target, cat_vars, quant_vars):
             plt.ylabel(target)
             plt.title(quant + ' vs ' + target + ' by ' + cat)
             plt.show()
+
+
+def create_heatmap(train, cols):
+    '''
+    This function takes in the training split as well as the columns to find correlation for. 
+    It creates a correlation matrix and then displays a heatmap showing all of the correlations. 
+    The highest correlation values have the darkest colors in this heatmap.
+    '''
+    corr_matrix = train[cols].corr()
+    plt.figure(figsize=(15,8))
+    sns.heatmap(corr_matrix, cmap='twilight_shifted', annot=True, linewidth=0.5, mask= np.triu(corr_matrix))
+    plt.title('Correlation with the target and among features in the train split')
+    plt.show()
+
 
 def plot_variable_pairs(train, cols, hue=None):
     '''
