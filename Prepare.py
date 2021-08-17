@@ -141,7 +141,7 @@ def create_features(df):
     df['is_unclassified'] = np.where(df.emptype.str.contains('UNCLASSIFIED'), 1, 0)
 
     ## creating part-time vs full-time column
-    df['is_parttime'] = np.where(df.is_parttime.str.contains('PART-TIME'), 1, 0)
+    df['is_parttime'] = np.where(df.emptype.str.contains('PART-TIME'), 1, 0)
     
     return df
 
