@@ -14,7 +14,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import explained_variance_score
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression, LassoLars, TweedieRegressor
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import PolynomialFeatures, MinMaxScaler
 import sklearn.preprocessing
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
@@ -207,4 +207,38 @@ def split_data(df):
     
     return train, validate, test
     
+def min_max_scale(X_train, X_validate, X_test, numeric_cols):
+    '''
+    this function takes in 3 dataframes with the same columns, 
+    a list of numeric column names (because the scaler can only work with numeric columns),
+    and fits a min-max scaler to the first dataframe and transforms all
+    3 dataframes using that scaler. 
+    it returns 3 dataframes with the same column names and scaled values. 
+    '''
+    # create the scaler object and fit it to X_train (i.e. identify min and max)
+    # if copy = false, inplace row normalization happens and avoids a copy (if the input is already a numpy array).
+     
+    scaler = MinMaxScaler(copy=True).fit(X_train[numeric_cols])
+
+    #scale X_train, X_validate, X_test using the mins and maxes stored in the scaler derived from X_train. 
+    # 
+    X_train_scaled_array = scaler.transform(X_train[numeric_cols])
+    X_validate_scaled_array = scaler.transform(X_validate[numeric_cols])
+    X_test_scaled_array = scaler.transform(X_test[numeric_cols])
+
+    # convert arrays to dataframes
+    X_train_scaled = pd.DataFrame(X_train_scaled_array, 
+                                  columns=numeric_cols).\
+                                  set_index([X_train.index.values])
+
+    X_validate_scaled = pd.DataFrame(X_validate_scaled_array, 
+                                     columns=numeric_cols).\
+                                     set_index([X_validate.index.values])
+
+    X_test_scaled = pd.DataFrame(X_test_scaled_array, 
+                                 columns=numeric_cols).\
+                                 set_index([X_test.index.values])
+
+    
+    return X_train_scaled, X_validate_scaled, X_test_scaled
     
