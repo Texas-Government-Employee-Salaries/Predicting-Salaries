@@ -61,7 +61,7 @@ def generate_barplot(df, target, var):
     overall_mean = df[target].mean()
     sns.barplot(var, target, data=df, palette="twilight_shifted")
     plt.xlabel('')
-    plt.ylabel('Tax Value')
+    plt.ylabel('Annual Salary')
     plt.title('Bar plot of ' + var + ' vs ' + target)
     plt.axhline(overall_mean, ls = '--', color = 'grey')
     plt.show()
@@ -93,8 +93,8 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
     This function takes in takes in a dataframe, the name of the binary target variable, a list of 
     the names of the categorical variables and a list of the names of the quantitative variables. It returns
     bar plots for categorical variables and scatterplots for quantitative(continuous) variables.
-    For each categorical variable, the bar plot shows the tax value for each class in each category
-    with a dotted line for the average overall tax value. 
+    For each categorical variable, the bar plot shows the annual salary for each class in each category
+    with a dotted line for the average overall annual salary. 
     The scatterplots show the relationship between quantitative variables and the target variable.
     '''
     for var in cat_vars:
