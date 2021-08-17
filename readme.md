@@ -5,6 +5,8 @@ by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 
 ## Project Description
 
+Despite being a touchy subject, salary figures are a critical data point for organizations who value diversity, equity, and inclusion. Using data acquired from The Texas Tribune, our goal is to create a regression model that predicts a government employee’s annual salary based on demographic information. In doing so we will provide a methodology for companies and organizations who seek to analyze their own salary data and attain pay equity.
+
 ## Project Goals
 
 1. Create scripts to perform the following:
@@ -16,7 +18,7 @@ by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 
 3. Build and evaluate Regression models to predict annual salary for Texas State employees.
 
-4.
+
 ## Business Goals
 
 * Discover drivers of annual salary and the distribution of annual salary based on features. 
@@ -26,14 +28,17 @@ by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 *Hypotheses 1:* I rejected the null hypotheses; 
 * Confidence level = 0.99
 * Alpha = 1 - Confidence level = 0.01
-* H<sub>0</sub>: 
-* H<sub>1</sub>: 
+* H<sub>0</sub>: There is no correlation between tenure years and annual salary.
+* H<sub>1</sub>: There is a correlation between tenure years and annual salary.
 
 *Hypotheses 2:* I rejected the null hypotheses; 
 * Confidence level = 0.99
 * Alpha = 1 - Confidence level = 0.01
-* H<sub>0</sub>: 
-* H<sub>1</sub>: 
+* H<sub>0</sub>: Texas Government employees and whether or not they fall in the BIPOC category is idependent of their annual salary
+* H<sub>1</sub>: Texas Government employees and whether or not they fall in the BIPOC have a significant difference in their annual salaries
+
+## Project Findings
+* 
 
 ## Data Dictionary
 Please use this data dictionary as a reference for the variables used within in the data set.
@@ -88,20 +93,9 @@ The overall process followed in this project, is as follows:
 * Collect database details (connection information and credentials)
 
 ### 2. Acquire
-* This is accomplished via the python script named “acquire.py”. The script will use credentials (stored in env.py) to collects data using a SQL query from the following tables:
-	1. 
-	2.  
-	3. 
-	* 
-		*  
+* This is accomplished via the python script named `acquire.py`. The function `get_texas_data` will use pandas to read a csv found on The Texas Tribune's website.
 
-### Columns Selected from the Original Data 
-- 
- - 
-- 
-- 
 
-*
 * Finally, the get_data_summary() function will present a number of data-set metadata, including the following:
   * The number of rows/columns in the data set
   * The number of missing values
@@ -110,7 +104,7 @@ The overall process followed in this project, is as follows:
   * Listings of each category and relative proportions
 
 ### 3. Prepare
-* This functionality is stored in the python script "prepare.py". It will perform the following actions:
+* This functionality is stored in the python script `prepare.py`. It will perform the following actions:
 1. Examine individual distributions of data and identify outliers
 * perform univariate analysis, by generating bar plots for each categorical variable, as well as box plots and histograms for quantitative variables
 3. Check for duplicate rows in the data set. If duplicates are detected, they are removed and appropriate log messages are returned
