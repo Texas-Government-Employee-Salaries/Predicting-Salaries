@@ -104,19 +104,17 @@ The overall process followed in this project, is as follows:
   * Listings of each category and relative proportions
 
 ### 3. Prepare
-* This functionality is stored in the python script `prepare.py`. It will perform the following actions:
-1. Examine individual distributions of data and identify outliers
+* This functionality is stored in the python script `prepare.py`. `explore_univariate` will perform the following actions:
+- Examine individual distributions of data and identify outliers
 * perform univariate analysis, by generating bar plots for each categorical variable, as well as box plots and histograms for quantitative variables
+* `prepare_tex` performs the following actions
+1. Lowercases the capital columns and renames all the abbreviated column to a more human readable format. 
+2. The function also trims leading and trailing white space on all the string values for the object columns.
 3. Check for duplicate rows in the data set. If duplicates are detected, they are removed and appropriate log messages are returned
-4. Check for nulls in the data set - several such cases were identified and addressed as follows:
-	* 
-	* 
-	    * 
-	    * 
-	* 
-		* 
-5. 
-6. 
+4. Check for clerical errors in the data set - several such cases were identified and addressed as follows:
+	* Three employees had a hire date listed as 2069. Since it was such a low number, we dropped these emplooyees 
+5. Drop unnecessary columns such as `jobclass`, `mi`, `rate`, `statenum`, `duplicated`, `multiple_full_time_jobs`, `combined_multiple_jobs`, `summed_annual_salary`, `hide_from_search`. 
+6. Renamed columns for ease of workflor
 7. 
 8. Attempt to remove the outliers using an IQR of 1.5 - although this did bring some distributions closer to normal, this reduced the correlation of predictors with the target variable. As a result, we proceeded without this process and instead made use of a Robust Scaler to reduce the effect of outliers.
 	* Moreover, we opted not to remove outliers from the train split, as there would potentially be outliers in the validate/test sets. This could negatively impact the model's performance.

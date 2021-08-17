@@ -81,7 +81,7 @@ def prepare_tex(df):
 
 def create_features(df):
     '''
-    This function is designed to create multipal features form the original columns of 
+    This function is designed to create multiple features from the original columns of 
     the dataframe.
     
     It uses one hot encoding to create an is_female column with the values of 1 for female
