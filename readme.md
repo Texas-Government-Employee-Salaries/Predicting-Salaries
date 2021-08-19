@@ -169,14 +169,13 @@ During the analysis process, I made use of the following regression models:
 1. OLS Regression
 2. Lasso + Lars
 3. Tweedie Regressor GLM
-4. Polynomial Regression
+4. Polynomial Regression (2nd degree)
 
-My results indicated that the Polynomial Regression model provided the highest R-squared of 44% and the lowest RMSE of 463791. This beat the baseline RMSE of 620877 and R-squared of -22%.
+OUr results indicated that the Polynomial Regression model provided the highest R-squared of % and the lowest RMSE of USD. This beat the baseline RMSE of 620877 and R-squared of 0.
 
-The square footage, location (latitude and longitude) and number of bedrooms were found to be the best drivers of tax value.
+The tenure and race variables were found to be the best drivers of annual salary.
 
 ## Next Steps
-If I had more time, I would:
-* add more features to the models - garage, basement, pool
+If we had more time, we would:
 * explore other scaling methods
-* collect more data related to higher-property values
+* collect more data related to higher annual salaries
