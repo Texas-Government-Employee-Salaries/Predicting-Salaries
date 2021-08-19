@@ -104,9 +104,10 @@ The overall process followed in this project, is as follows:
   * Listings of each category and relative proportions
 
 ### 3. Prepare
-* This functionality is stored in the python script `prepare.py`. `explore_univariate` will perform the following actions:
-- Examine individual distributions of data and identify outliers
-* perform univariate analysis, by generating bar plots for each categorical variable, as well as box plots and histograms for quantitative variables
+This functionality is stored in the python script `prepare.py`. 
+* `explore_univariate` will perform the following actions:
+1. Examine individual distributions of data and identify outliers
+2. perform univariate analysis, by generating bar plots for each categorical variable, as well as box plots and histograms for quantitative variables
 * `prepare_tex` performs the following actions:
 1. Lowercases the capital columns and renames all the abbreviated column to a more human readable format. 
 2. The function also trims leading and trailing white space on all the string values for the object columns.
@@ -143,26 +144,27 @@ The overall process followed in this project, is as follows:
 * This functionality resides in the "explore.py" file, which provides the following functionality:
   1. Perform bivariate analysis, by generating bar plots for categorical variables, as well as scatter plots for quantitative variables
   2. Perform multivariate analysis by generating scatter plots of each continuous variable against the target variable, by each categorical variable  
-* Performed T-tests and correlation tests to test my initial hypotheses
+* Performed T-tests, correlation tests, and chi-squared tests to test our initial hypotheses
 
 ### 5. Model
 * Feature Selection:
 	* Used Correlation (of predictors with the target variable) and RFE to select the top 5 features to include in the model
 	* The following were selected:
-		* '', '', '', '', ''
+		* `is_white`, `is_BIPOC`, `is_director`, `is_unclassified`, `is_parttime`, `0-5_years`, `5-10_years`, `10-20_years`, `>20_years`
 * Generate a baseline, against which all models will be evaluated
-	* The baseline was calculated to have an RMSE of ; each of the models was evaluated against this baseline value
+	* The baseline was calculated to have an RMSE of $26,448.16; each of the models was evaluated against this baseline value
 * Compare the models against the baseline and deduce which has the lowest RMSE and highest R-squared value
 * Fit the best performing model on test data
 * Create visualizations of the residuals and the actual vs predicted distributions
 
 ### 6. Deliver
-* Present findings via PowerPoint slides
+* Present findings via Tableau story
+* Link to Tableau story: put link here
 
 ## To recreate
 Simply clone the project locally and follow steps outlined in this README.
 
-Next, open the Jupyter notebook titled “final_report” and execute the code within. 
+Next, open the Jupyter notebook titled `final_notebook` and execute the code within. 
 
 ## Takeaways
 During the analysis process, I made use of the following regression models:
