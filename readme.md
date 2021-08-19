@@ -93,10 +93,9 @@ The overall process followed in this project, is as follows:
 * Collect database details (connection information and credentials)
 
 ### 2. Acquire
-* This is accomplished via the python script named `acquire.py`. The function `get_texas_data` will use pandas to read a csv found on The Texas Tribune's website.
-
-
-* Finally, the get_data_summary() function will present a number of data-set metadata, including the following:
+This is accomplished via the python script named `acquire.py`. 
+* The function `get_texas_data` will use pandas to read a csv found on The Texas Tribune's website.
+* The `get_data_summary` function will present a number of data-set metadata, including the following:
   * The number of rows/columns in the data set
   * The number of missing values
   * Basic information about the data
@@ -141,7 +140,7 @@ This functionality is stored in the python script `prepare.py`.
 3. Converts arrays to dataframes
 
 ### 4. Explore
-* This functionality resides in the "explore.py" file, which provides the following functionality:
+* This functionality resides in the `explore.py` file, which provides the following functionality:
   1. Perform bivariate analysis, by generating bar plots for categorical variables, as well as scatter plots for quantitative variables
   2. Perform multivariate analysis by generating scatter plots of each continuous variable against the target variable, by each categorical variable  
 * Performed T-tests, correlation tests, and chi-squared tests to test our initial hypotheses
@@ -150,7 +149,7 @@ This functionality is stored in the python script `prepare.py`.
 * Feature Selection:
 	* Used Correlation (of predictors with the target variable) and RFE to select the top 5 features to include in the model
 	* The following were selected:
-		* `is_white`, `is_BIPOC`, `is_director`, `is_unclassified`, `is_parttime`, `0-5_years`, `5-10_years`, `10-20_years`, `>20_years`
+		* `is_female`, `is_hispanic`, `is_black`, `is_BIPOC`, `is_director`, `is_unclassified`, `is_parttime`, `0-5_years`, `5-10_years`, `>20_years`
 * Generate a baseline, against which all models will be evaluated
 	* The baseline was calculated to have an RMSE of $26,448.16; each of the models was evaluated against this baseline value
 * Compare the models against the baseline and deduce which has the lowest RMSE and highest R-squared value
@@ -173,7 +172,7 @@ During the analysis process, I made use of the following regression models:
 3. Tweedie Regressor GLM
 4. Polynomial Regression (2nd degree)
 
-OUr results indicated that the Polynomial Regression model provided the highest R-squared of % and the lowest RMSE of USD. This beat the baseline RMSE of 620877 and R-squared of 0.
+Our results indicated that the Polynomial Regression model provided the highest R-squared of 31% and the lowest RMSE of $21,301.19 USD. This beat the baseline RMSE of $62,0877 and R-squared of 0. Our model outperforms the baseline by 19.5%. 
 
 The tenure and race variables were found to be the best drivers of annual salary.
 
