@@ -171,7 +171,7 @@ During the analysis process, I made use of the following regression models:
 3. Tweedie Regressor GLM
 4. Polynomial Regression (2nd degree)
 
-Our results indicated that the Polynomial Regression model provided the highest R-squared of 31% and the lowest RMSE of $21,301.19 USD. This beat the baseline RMSE of $62,0877 and R-squared of 0. Our model outperforms the baseline by 19.5%. 
+Our results indicated that the Polynomial Regression model provided the highest R-squared of 31% and the lowest RMSE of $21,301.19 USD. This beat the baseline RMSE of $62,087 and R-squared of 0. Our model outperforms the baseline by 19.5%. 
 
 The tenure and race variables were found to be the best drivers of annual salary.
 
