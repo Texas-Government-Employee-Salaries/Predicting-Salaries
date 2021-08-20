@@ -157,8 +157,7 @@ This functionality is stored in the python script `prepare.py`.
 * Create visualizations of the residuals and the actual vs predicted distributions
 
 ### 6. Deliver
-* Present findings via Tableau story
-* Link to Tableau story: put link here
+* [Present findings via Tableau story](https://public.tableau.com/app/profile/desiree.mcelroy/viz/Houstonwehaveasalary-Capstone/HoustonWeHaveaSalary_?publish=yes)
 
 ## To recreate
 Simply clone the project locally and follow steps outlined in this README.
