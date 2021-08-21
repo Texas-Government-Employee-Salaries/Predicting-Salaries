@@ -157,8 +157,7 @@ This functionality is stored in the python script `prepare.py`.
 * Create visualizations of the residuals and the actual vs predicted distributions
 
 ### 6. Deliver
-* Present findings via Tableau story
-* Link to Tableau story: put link here
+* [Present findings via Tableau story](https://public.tableau.com/app/profile/desiree.mcelroy/viz/Houstonwehaveasalary-Capstone/HoustonWeHaveaSalary_?publish=yes)
 
 ## To recreate
 Simply clone the project locally and follow steps outlined in this README.
@@ -172,7 +171,7 @@ During the analysis process, I made use of the following regression models:
 3. Tweedie Regressor GLM
 4. Polynomial Regression (2nd degree)
 
-Our results indicated that the Polynomial Regression model provided the highest R-squared of 31% and the lowest RMSE of $21,301.19 USD. This beat the baseline RMSE of $62,0877 and R-squared of 0. Our model outperforms the baseline by 19.5%. 
+Our results indicated that the Polynomial Regression model provided the highest R-squared of 31% and the lowest RMSE of $21,301.19 USD. This beat the baseline RMSE of $62,087 and R-squared of 0. Our model outperforms the baseline by 19.5%. 
 
 The tenure and race variables were found to be the best drivers of annual salary.
 
