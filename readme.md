@@ -1,3 +1,4 @@
+![Image of logo](https://github.com/Texas-Government-Employee-Salaries/Predicting-Salaries/blob/master/logo.png)
 # Capstone Project: Houston, we have a salary.
 by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 
