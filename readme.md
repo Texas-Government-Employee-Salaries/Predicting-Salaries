@@ -23,6 +23,7 @@ Despite being a touchy subject, salary figures are a critical data point for org
 ## Business Goals
 
 * Discover drivers of annual salary and the distribution of annual salary based on features. 
+* Reveal any inequities among various races and genders across salaries, elected officials, and director positions.
 * Perform modeling, analysis and testing to verify the performance of a prediction model using linear regression.
 
 ## Initial Hypotheses
@@ -39,7 +40,10 @@ Despite being a touchy subject, salary figures are a critical data point for org
 * H<sub>1</sub>: Texas Government employees and whether or not they fall in the BIPOC have a significant difference in their annual salaries
 
 ## Project Findings
-* 
+* Employees with director titles have a much higher salary than those without director titles.
+* There is a major disparity between genders among elected officials and employees with director titles.
+* The white race is over-respresented in elected officials and director titles as compared to ethnicities across all government positions.
+* Salary distribution graphs also showed an equal distribution amongst the various races up to a certain amount. However as the salary rate trended higher, bipoc ethnicity totals as well as the count for women, lowered.
 
 ## Data Dictionary
 Please use this data dictionary as a reference for the variables used within in the data set.
