@@ -2,7 +2,7 @@
 # Capstone Project: Houston, we have a salary.
 by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 
-## [Predicting Texas Government Employee Salaries](https://public.tableau.com/app/profile/desiree.mcelroy/viz/Houstonwehaveasalary-Capstone/HoustonWeHaveaSalary_?publish=yes)
+## [Predicting Texas Government Employee Salaries](https://public.tableau.com/app/profile/desiree.mcelroy/viz/HoustonWeHaveaPayGap/HoustonWeHaveaSalary_)
 
 ## Project Description
 
