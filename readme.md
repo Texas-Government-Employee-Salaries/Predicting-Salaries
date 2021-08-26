@@ -1,5 +1,5 @@
 ![Image of logo](https://github.com/Texas-Government-Employee-Salaries/Predicting-Salaries/blob/master/logo.png)
-# Capstone Project: Houston, we have a salary.
+# Capstone Project: Houston, We Have a Pay Gap.
 by Mariam Naqvi, Christopher Mayorga, Desiree McElroy and Forrest McCrosky
 
 ## [Predicting Texas Government Employee Salaries](https://public.tableau.com/app/profile/desiree.mcelroy/viz/HoustonWeHaveaPayGap/HoustonWeHaveaSalary_)
